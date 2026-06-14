@@ -1,0 +1,93 @@
+Tech Stack
+    Frontend
+        React
+        React Router
+        Axios
+        Framer Motion
+        CSS
+    Backend
+        Django
+        Django REST Framework
+        JWT Authentication
+    Database
+        PostgreSQL
+        Redis
+    DevOps
+        Ubuntu
+        Git
+        GitHub
+
+System Architecture:
+        Football Dataset
+            ↓
+        Python ETL Script
+            ↓
+        PostgreSQL
+            ↓
+        Django Models
+            ↓
+        DRF API
+            ↓
+        React Frontend      
+
+Features:
+
+1. Authentication
+
+        -Register    -Login   -Logout  -Profile -Favorite teams    -Favorite players
+
+2. Teams Page
+
+        -Display teams    -Search teams   -Filter by league.
+
+3. Team Details
+
+    Show:
+        -Logo    -Stadium -League   -Squad  -Matches
+
+4. Players Page
+
+    Filter:
+        -Position        -Nationality     -Club
+
+5. Player Profile
+
+    Show:
+        -Photo   -Age      -Position   -Team    -    -Goals       -Assists     -Matches
+
+6. Matches Page
+
+    Display matches.
+
+    Filter by:
+        -League      -Season      -Team
+
+7. Match Details
+
+    Show:
+
+    Arsenal 3 - 2 Chelsea
+
+    Statistics:
+        -Possession      -Shots   -Passes    -Cards
+
+8. League Table
+
+    Display standings.
+
+        1 Arsenal
+        2 Liverpool
+        3 Chelsea
+        9. Statistics Dashboard
+
+        Charts:
+
+        Top scorers
+        Top assists
+        Team goals
+        Win rates
+
+        Libraries:
+
+        Recharts
+        Chart.js

@@ -1,0 +1,149 @@
+Development Roadmap
+
+Phase 1
+
+    Ubuntu Setup
+
+        sudo apt update
+        sudo apt upgrade
+
+    Install:
+
+        sudo apt install git
+        sudo apt install python3-pip
+        sudo apt install postgresql
+        sudo apt install nodejs npm
+
+Phase 2
+
+    GitHub
+
+        mkdir football-app
+        cd football-app
+
+    git init
+
+    Structure:
+
+        football-app/
+        |
+        |-- backend/
+        |-- frontend/
+        |-- dataset/
+
+        Push:
+
+        git remote add origin YOUR_REPO
+        git push -u origin main
+
+Phase 3
+
+    Backend
+
+        django-admin startproject config
+
+    Apps:
+
+        accounts
+        football
+        statistics
+
+    Install:
+
+        pip install django
+        pip install djangorestframework
+        pip install djangorestframework-simplejwt
+        pip install psycopg2-binary
+
+Phase 4
+
+    Dataset Import
+
+    Create:
+
+    scripts/
+        import_data.py
+
+    Process:
+
+    CSV
+     ↓
+    Clean
+     ↓
+    Insert into PostgreSQL
+
+Phase 5
+
+    API
+
+    Endpoints:
+
+    /api/teams/
+    /api/players/
+    /api/matches/
+    /api/leagues/
+    /api/stats/
+
+Phase 6
+
+    React
+
+    npm create vite@latest frontend
+
+    Install:
+
+    npm install axios react-router-dom framer-motion
+
+    Pages:
+
+    Home
+    Teams
+    Players
+    Matches
+    Statistics
+    Login
+    Register
+    Profile
+
+Phase 7
+
+    Advanced Features
+
+    Dark mode
+    Favorites
+    Live search
+    Pagination
+    Caching
+    Charts
+    Team comparison
+    Player comparison
+
+Phase 8
+
+    Deployment
+
+    Backend:
+
+    Render
+
+    Frontend:
+
+    Vercel
+
+    Database:
+
+    Supabase PostgreSQL
+
+    Final Portfolio Outcome
+
+You'll end up with a professional project demonstrating:
+
+    React
+    Django REST Framework
+    PostgreSQL
+    Data Import Pipelines
+    Authentication
+    Analytics Dashboards
+    Deployment
+    Git/GitHub
+    Linux Development
