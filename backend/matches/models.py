@@ -1,6 +1,7 @@
 from django.db import models
 from seasons.models import Seasons
 from leagues.models import Leagues
+from teams.models import Teams
 
 class Matches(models.Model):
     match_id = models.IntegerField(primary_key=True)
@@ -19,9 +20,23 @@ class Matches(models.Model):
         null=True
     )
 
+    home_team = models.ForeignKey(
+        Teams,
+        db_column='home_team_id',
+        on_delete=models.DO_NOTHING,
+        null=True,
+        related_name = 'home_matches'
+    )
+
+    away_team = models.ForeignKey(
+        Teams,
+        db_column='away_team_id',
+        on_delete=models.DO_NOTHING,
+        null=True,
+        related_name = 'away_matches'
+    )
+
     matchday = models.IntegerField(blank=True, null=True)
-    home_team_id = models.IntegerField(blank=True, null=True)
-    away_team_id = models.IntegerField(blank=True, null=True)
     winner = models.CharField(max_length=50, blank=True, null=True)
     utc_date = models.CharField(max_length=50, blank=True, null=True)
 
