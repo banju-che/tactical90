@@ -146,7 +146,7 @@ function LeagueDetail({ league }) {
             <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11" />
           </svg>
         </div>
-        <p className="text-sm" style={{ color: "#a89fd8" }}>
+        <p className="text-sm" style={{ color: "#a89fd8 " }}>
           Select a league to see details
         </p>
       </div>
