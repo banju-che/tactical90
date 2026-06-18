@@ -4,6 +4,7 @@ import Dashboard from "./pages/Dashboard";
 import Leagues from "./pages/Leagues";
 import Matches from "./pages/Matches";
 import Players from "./pages/Players"
+import Teams from "./pages/Teams";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/leagues" element={<Leagues />} />
         <Route path="/matches" element={<Matches />} />
         <Route path="/players" element={<Players/>} />
+        <Route path="/teams" element={<Teams/>} />
       </Routes>
     </BrowserRouter>
   );

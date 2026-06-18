@@ -1,8 +1,4 @@
-# TACTICAL90 — Project Context
 
-> Paste this file at the start of every AI session so the assistant knows exactly what has been built, what conventions to follow, and what comes next.
-
----
 
 ## Project Overview
 
@@ -20,7 +16,7 @@
 |--------------|-------------------------------|
 | Framework    | Django (Python)               |
 | API          | Django REST Framework (DRF)   |
-| Database     | SQLite3 (`db.sqlite3`)        |
+| Database     | postgres        |
 | Dev server   | `http://127.0.0.1:8000`       |
 | API prefix   | `/api/`                       |
 
@@ -62,19 +58,18 @@ src/
 ├── App.jsx                    ← router root
 ├── index.css                  ← global styles + scrollbar
 ├── pages/
-│   ├── Dashboard.jsx          ✅ built (mock data)
-│   └── Leagues.jsx            ✅ built (live API)
+│   ├── Dashboard.jsx          
+│   └── Leagues.jsx            
 ├── components/
-│   ├── Navbar.jsx             ✅ built
-│   ├── StatsOverview.jsx      ✅ built
-│   ├── HeroMatch.jsx          ✅ built
-│   ├── LeagueTable.jsx        ✅ built
-│   ├── UpcomingFixtures.jsx   ✅ built
-│   └── TopScorers.jsx         ✅ built
+│   ├── Navbar.jsx             
+│   ├── StatsOverview.jsx      
+│   ├── HeroMatch.jsx          
+│   ├── LeagueTable.jsx        
+│   ├── UpcomingFixtures.jsx   
+│   └── TopScorers.jsx         
 ├── services/                  ← all fetch calls live here
-│   └── leagues.js             ✅ built (getLeagues)
-└── data/
-    └── mockData.js            ← temporary mock, replace with real API calls
+│   └── leagues.js             
+           
 ```
 
 ---
