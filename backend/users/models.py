@@ -32,3 +32,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     class Meta:
         verbose_name = 'user'
         indexes = [models.Index(fields=['email'])]
+
+    def __str__(self):
+        return self.email

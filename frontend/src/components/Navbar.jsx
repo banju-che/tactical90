@@ -8,7 +8,8 @@ const navLinks = [
   { label: "Matches", icon: Trophy, path: "/matches" },
   { label: "Teams", icon: Shirt, path: "/teams" },
   { label: "Players", icon: PersonStanding, path: "/players" },
-  { label: "Stats", icon: BarChart2, path: "/stats" },
+  { label: "Referees", icon: BarChart2, path: "/referees" },
+  { label: "Coaches", icon: BarChart2, path: "/coaches" },
 ];
 
 export default function Navbar({ activePage = "Dashboard" }) {

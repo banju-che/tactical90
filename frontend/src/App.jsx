@@ -5,6 +5,8 @@ import Leagues from "./pages/Leagues";
 import Matches from "./pages/Matches";
 import Players from "./pages/Players"
 import Teams from "./pages/Teams";
+import Referees from "./pages/Referees";
+import Coaches from "./pages/Coaches";
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
         <Route path="/matches" element={<Matches />} />
         <Route path="/players" element={<Players/>} />
         <Route path="/teams" element={<Teams/>} />
+        <Route path="/referees" element={<Referees />} />
+        <Route path="/coaches" element={<Coaches />} />
       </Routes>
     </BrowserRouter>
   );

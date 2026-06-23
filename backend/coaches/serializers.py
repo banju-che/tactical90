@@ -1,7 +1,7 @@
-from rest_frameworks import serializers
+from rest_framework import serializers
 from .models import Coaches
 
-class CoacheSerializers(serializers):
+class CoacheSerializers(serializers.ModelSerializer):
     class Meta :
         model = Coaches
         fields = [

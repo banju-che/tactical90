@@ -40,6 +40,11 @@ class Matches(models.Model):
     winner = models.CharField(max_length=50, blank=True, null=True)
     utc_date = models.CharField(max_length=50, blank=True, null=True)
 
+    def __str__(self):
+        return f"{self.home_team} vs {self.away_team}"
+    
     class Meta:
         managed = False
         db_table = 'matches'
+
+     

@@ -6,6 +6,9 @@ class Stadiums(models.Model):
     location = models.CharField(max_length=128, blank=True, null=True)
     capacity = models.FloatField(blank=True, null=True)
 
+    def __str__(self): 
+        return self.name 
+        
     class Meta:
         managed = False
         db_table = 'stadiums'

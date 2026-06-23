@@ -1,3 +1,14 @@
 from django.contrib import admin
+from .models import Teams 
 
-# Register your models here.
+@admin.register(Teams)
+class TeamsAdmin(admin.ModelAdmin):
+    list_display = (
+        "team_id",
+        "name",
+        "founded_year",
+        "stadium",
+        "league",
+        "coach",
+        "cresturl"
+    )

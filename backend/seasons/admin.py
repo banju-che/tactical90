@@ -1,3 +1,10 @@
-from django.contrib import admin
+from django.contrib import admin 
+from .models import Seasons
 
-# Register your models here.
+@admin.register(Seasons)
+class SeasonsAdmin(admin.ModelAdmin):
+    list_display = (
+        "season_id",
+        "league",
+        "year"
+    )

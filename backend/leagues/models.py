@@ -10,6 +10,9 @@ class Leagues(models.Model):
     uel_spot = models.IntegerField(blank=True, null=True)
     relegation_spot = models.IntegerField(blank=True, null=True)
 
+    def __str__(self):
+        return self.name
+        
     class Meta:
         managed = False
         db_table = 'leagues'
