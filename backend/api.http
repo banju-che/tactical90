@@ -1,3 +1,24 @@
+{
+    "email": "admin1@example.com",
+    "password": "TEST123"
+},
+{
+    "email": "datamanager@example.com",
+    "password": "data123"
+},
+{
+    "email": "fan1@example.com",
+    "password": "fan123"
+}
+
+
+@FAN_TOKEN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMjg1MDY3LCJpYXQiOjE3ODIyODE0NjcsImp0aSI6IjNiODM5ZTYwMGVkODRkOWViMGJiMzVlYThjNDkwYjk4IiwidXNlcl9pZCI6N30.rajR-ql2Xftgl-xu2Uzfc9Hx42vyvhU228w1Bp8uM1s 
+@DATAMANAGER_TOKEN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMjg1MjU5LCJpYXQiOjE3ODIyODE2NTksImp0aSI6IjI4NTRiZWRiNThmNDQ2ZjRhZWFkNGNiZDliNzhkNTY1IiwidXNlcl9pZCI6Nn0.SE8ifTlc4GNyJfwZxJQDNKgQ2GZDOrnwt3bq3LiD2zg
+@ADMIN_TOKEN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMjg1MzEyLCJpYXQiOjE3ODIyODE3MTIsImp0aSI6IjE1ZTE3MzZjNWZmNDQ3NThhMWE0YTk1ODYyYWY1YmE1IiwidXNlcl9pZCI6M30.6he3wyGEse7Lorwhp2TphRDU-foDj4fbhV6FJbOAxJc
+@JULIUS_TOKEN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMjg2OTg2LCJpYXQiOjE3ODIyODMzODYsImp0aSI6IjQ2YmUzZDY5YmI5NTQ1OTZhYTM3ODkzMzYzYzc2Y2JhIiwidXNlcl9pZCI6Mn0.DQQv96liQsocIyMZsP7ia7ppQytvfJy4WBi6-37n8Dk
+
+
+
 ### Get JWT Token
 POST  http://127.0.0.1:8000/api/token/
 Content-Type: application/json
@@ -8,10 +29,47 @@ Content-Type: application/json
 }
 
 ### Get leagues
-GET  http://127.0.0.1:8000/api/leagues/
+GET  http://127.0.0.1:8000/api/teams/
 Content-Type: application/json
 
 ### Get teams id
-GET  http://127.0.0.1:8000/api/matches/
+GET    http://127.0.0.1:8000/api/standings/
 Content-Type: application/json
-Authorization: Bearer ejyhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMjE2NDIxLCJpYXQiOjE3ODIyMTI4MjEsImp0aSI6IjRkYTFhNWRkMDdjMDQxYWRiN2RkMzVhYjM5ZWY3YWNiIiwidXNlcl9pZCI6Mn0.eoXpIjlpnL-gcz9VkdmHvcdC73vuipLxX9LWfmv9cH4
+Authorization: Bearer {{FAN_TOKEN}}
+
+###
+GET    http://127.0.0.1:8000/api/standings/104
+Content-Type: application/json
+Authorization: Bearer {{ADMIN_TOKEN}}
+
+###
+POST   http://127.0.0.1:8000/api/standings/
+Content-Type: application/json
+Authorization: Bearer {{DATAMANAGER_TOKEN}}
+
+{
+  "standing_id": 104,
+  "season_id": 2,
+  "league_id": 2,
+  "position": 14,
+  "team_id": 5890,
+  "played_games": 38,
+  "won": 8,
+  "draw": 14,
+  "lost": 16,
+  "points": 38,
+  "goals_for": 32,
+  "goals_against": 54,
+  "goal_difference": -22,
+  "form": "['D', 'D', 'L', 'L', 'D']"
+}
+
+###
+PATCH    http://127.0.0.1:8000/api/standings/
+Content-Type: application/json
+Authorization: Bearer {{FAN_TOKEN}}
+
+###
+DELETE    http://127.0.0.1:8000/api/standings/104/
+Content-Type: application/json
+Authorization: Bearer {{JULIUS_TOKEN}}

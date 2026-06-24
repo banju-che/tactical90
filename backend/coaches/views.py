@@ -1,14 +1,14 @@
 from rest_framework import generics
 from .serializers import CoacheSerializers
 from .models import Coaches
-from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
+from users.permissions import IsFanOrHigher
 
 class coachesListCreateView(generics.ListCreateAPIView):
     queryset = Coaches.objects.all()
     serializer_class = CoacheSerializers
-    permission_classes = [IsAuthenticatedOrReadOnly]
+    permission_classes = [IsFanOrHigher]
     
 class coachesRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Coaches.objects.all()
     serializer_class = CoacheSerializers
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsFanOrHigher]

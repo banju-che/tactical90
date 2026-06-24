@@ -8,6 +8,9 @@ import Teams from "./pages/Teams";
 import Referees from "./pages/Referees";
 import Coaches from "./pages/Coaches";
 
+import TeamsList from "./pages/teams/TeamsList"
+import TeamDetail from "./pages/teams/TeamDetail"
+
 function App() {
   return (
     <BrowserRouter>
@@ -17,6 +20,10 @@ function App() {
         <Route path="/matches" element={<Matches />} />
         <Route path="/players" element={<Players/>} />
         <Route path="/teams" element={<Teams/>} />
+
+        <Route path="/teamslist" element={<TeamsList />} />
+        <Route path="/teams/:id" element={<TeamDetail />} />
+        
         <Route path="/referees" element={<Referees />} />
         <Route path="/coaches" element={<Coaches />} />
       </Routes>
