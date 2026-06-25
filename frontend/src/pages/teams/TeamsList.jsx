@@ -32,15 +32,7 @@ function Teams() {
                         to={`/teams/${team.team_id}/`}
                         onClick={() => console.log("clicked", team.team_id)}
                     >
-                        <div
-                            style={{
-                                background: "white",
-                                padding: "20px",
-                                margin: "10px",
-                            }}
-                        >
-                            {team.name}
-                        </div>
+                        <TeamCard key={team.team_id} team={team} />
                     </Link>
                 ))}
             </div>
