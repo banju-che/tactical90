@@ -114,6 +114,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+"""
 if os.getenv("DATABASE_URL"):
     DATABASES = {
         "default": dj_database_url.parse(os.getenv("DATABASE_URL"))
@@ -129,7 +130,10 @@ else:
             "PORT": os.getenv("DB_PORT"),
         }
     }
-
+"""
+DATABASES = {
+    "default": dj_database_url.parse(os.getenv("DATABASE_URL"))
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -177,7 +181,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'users.User'
 
 CORS_ALLOWED_ORIGINS = [
-    "CORS_ALLOWED_ORIGINS",
     "http://localhost:5173",
 ]
-
