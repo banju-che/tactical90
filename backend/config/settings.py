@@ -32,8 +32,7 @@ DEBUG = os.getenv("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = os.getenv(
     "ALLOWED_HOSTS",
-    "localhost,127.0.0.1",
-    "tactical90.onrender.com"
+    "localhost,127.0.0.1, tactical90.onrender.com"
 ).split(",")
 
 
@@ -178,6 +177,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'users.User'
 
 CORS_ALLOWED_ORIGINS = [
+    "CORS_ALLOWED_ORIGINS",
     "http://localhost:5173",
 ]
 
