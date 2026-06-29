@@ -11,11 +11,16 @@ import TeamsList from "./pages/teams/TeamsList";
 import TeamForm from "./pages/teams/TeamForm";
 import TeamDetail from "./pages/teams/TeamDetail";
 
+import Login from "./pages/Login"
+
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Dashboard />} />
+
+        <Route path="/login" element={<Login />} />
+
         <Route path="/leagues" element={<Leagues />} />
         <Route path="/matches" element={<Matches />} />
         <Route path="/players" element={<Players/>} />

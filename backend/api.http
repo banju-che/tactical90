@@ -27,6 +27,15 @@ Content-Type: application/json
     "email": "julius@example.com",
     "password": "test123"
 }
+###
+POST https://tactical90.onrender.com/api/teams/
+Content-Type: application/json
+
+{
+    "email": "julius@example.com",
+    "password": "test123"
+}
+
 ### 
 GET http://127.0.0.1:8000/api/teams/77/
 
