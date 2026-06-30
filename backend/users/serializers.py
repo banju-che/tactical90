@@ -25,13 +25,22 @@ class RegisterSerializer(serializers.ModelSerializer):
 
         return user
 
+from rest_framework import serializers
+
 class UserSerializer(serializers.ModelSerializer):
+    role = serializers.SerializerMethodField()
+
     class Meta:
         model = User
         fields = [
             "id",
             "email",
+            "role",
             "first_name",
             "last_name",
             "date_joined",
         ]
+
+    def get_role(self, obj):
+        group = obj.groups.first()
+        return group.name if group else None

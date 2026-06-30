@@ -21,3 +21,5 @@ class IsFanOrHigher(BasePermission):
             return request.method in ["POST", "PUT", "PATCH"]
 
         return False
+
+       
