@@ -2,9 +2,13 @@ import React, { useEffect, useState } from "react";
 import { getTeams } from "../../services/teamsServices";
 import TeamCard from "../../components/TeamCard";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "../../context/userContext";
 
 function Teams() {
     const [teams, setTeams] = useState([]);
+    
+    const { user } = useContext(UserContext);
 
     useEffect(() => {
         const fetchTeams = async () => {
@@ -30,7 +34,6 @@ function Teams() {
                     <Link
                         key={team.team_id}
                         to={`/teams/${team.team_id}/`}
-                        onClick={() => console.log("clicked", team.team_id)}
                     >
                         <TeamCard key={team.team_id} team={team} />
                     </Link>

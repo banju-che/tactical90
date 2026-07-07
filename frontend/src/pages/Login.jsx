@@ -1,63 +1,82 @@
-import { useState } from "react";
-import { login } from "../services/authService";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { login, getCurrentUser } from "../services/authService";
+import { UserContext } from "../context/userContext";
 
 function Login() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
-  const navigate = useNavigate();
+    const navigate = useNavigate();
+    const { login: loginUser } = useContext(UserContext);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+    const handleSubmit = async (e) => {
+        e.preventDefault();
 
-    try {
-      await login(username, password);
-      navigate("/");
-    } catch {
-      alert("Invalid credentials");
-    }
-  };
+        try {
+            // Authenticate and save JWT tokens
+            await login(email, password);
 
-return (
-        <div className="min-h-screen bg-[#251b50] p-6 text-white">
-            <h1 className="text-center text-3xl font-bold mb-8">
-                LOGIN
-            </h1>
+            // Fetch logged-in user's details
+            const currentUser = await getCurrentUser();
 
-            <div className="w-[60%] mx-auto rounded-2xl border border-white/20 bg-[rgba(175,169,236,0.18)] p-6">
+            // Store user in context
+            loginUser(currentUser);
+
+            // Redirect to home page
+            navigate("/");
+        } catch (err) {
+            console.error(err);
+            alert("Invalid email or password");
+        }
+    };
+
+    return (
+        <div className="min-h-screen bg-[#251b50] flex items-center justify-center p-6 text-white">
+            <div className="w-full max-w-md rounded-2xl border border-white/20 bg-[rgba(175,169,236,0.18)] p-8">
+                <h1 className="text-center text-3xl font-bold mb-8">
+                    Login
+                </h1>
+
                 <form
                     onSubmit={handleSubmit}
-                    className="flex flex-col gap-4"
+                    className="flex flex-col gap-5"
                 >
                     <div className="flex flex-col">
-                        <label htmlFor="user">Username</label>
+                        <label htmlFor="email" className="mb-2">
+                            Email
+                        </label>
+
                         <input
-                            id="user"
-                            name="username"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
-                            className="p-2 rounded text-white border border-white/20"
+                            id="email"
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            className="rounded border border-white/20 bg-transparent p-3 outline-none focus:border-blue-500"
+                            required
                         />
                     </div>
 
                     <div className="flex flex-col">
-                        <label htmlFor="password">Password</label>
+                        <label htmlFor="password" className="mb-2">
+                            Password
+                        </label>
+
                         <input
                             id="password"
-                            name="password"
                             type="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            className="p-2 rounded text-white border border-white/20"
+                            className="rounded border border-white/20 bg-transparent p-3 outline-none focus:border-blue-500"
+                            required
                         />
                     </div>
 
                     <button
                         type="submit"
-                        className="mt-4 px-4 py-2 rounded font-semibold"
+                        className="mt-4 rounded bg-blue-600 px-4 py-3 font-semibold transition hover:bg-blue-700"
                     >
-                        Submit
+                        Login
                     </button>
                 </form>
             </div>

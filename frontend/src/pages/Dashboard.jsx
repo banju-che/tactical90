@@ -9,7 +9,7 @@ import { liveMatch, standings, fixtures, topScorers } from "../data/mockData";
 export default function Dashboard() {
   return (
     <div className="min-h-screen" style={{ background: "#1a103d", color: "#f0eeff" }}>
-      <Navbar activePage="Dashboard" />
+      {/*<Navbar activePage="Dashboard" />*/}
 
       <div className="p-6 flex flex-col gap-5 max-w-[1400px] mx-auto">
 

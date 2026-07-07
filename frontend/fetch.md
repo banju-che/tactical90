@@ -1,16 +1,16 @@
-fetch("http://127.0.0.1:8000/api/leagues/")
+fetch("http://127.0.0.1:8000/api/matches/")
   .then((response) => response.json())
   .then((data) => console.log(data))
   .catch((error) => console.error(error));
 
 # token
-fetch("https://tactical90.onrender.com/api/token/", {
+fetch("http://127.0.0.1:8000/api/token/", {
     method: "POST",
     headers: {
         "Content-Type": "application/json",
     },
     body: JSON.stringify({
-        email: "julius@example.com",
+        email: "fan1@example.com",
         password: "test123",
     }),
 })
@@ -19,18 +19,9 @@ fetch("https://tactical90.onrender.com/api/token/", {
 .catch(console.error);
 
 # me
-fetch("https://tactical90.onrender.com/api/users/me/", {
-    method: "GET",
-    headers: {
-        Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc4MjkyMDQzOSwiaWF0IjoxNzgyODM0MDM5LCJqdGkiOiJjN2QxZjg3Y2M0N2I0MjAzYWVkZDViMGYzMGMxNDRiZiIsInVzZXJfaWQiOjJ9.kYlbdpOuDJhStdDqsHpNI3bSFtLq4xvLLMNWbVm3nUo",
-        "Content-Type": "application/json",
-    },
-})
-.then((response) => response.json())
-.then((data) => console.log(data))
-.catch((error) => console.error(error));
 
-fetch("https://tactical90.onrender.com/api/users/me/", {
+
+fetch("http://127.0.0.1:8000/api/users/me/", {
   headers: {
     Authorization: `Bearer ${localStorage.getItem("access")}`,
   },
@@ -41,7 +32,7 @@ fetch("https://tactical90.onrender.com/api/users/me/", {
   })
   .catch(console.error);
 
-
+# SHELL
 from django.contrib.auth import get_user_model
 from users.serializers import UserSerializer
 

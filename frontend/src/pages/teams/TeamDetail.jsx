@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { getTeam, deleteTeam } from "../../services/teamsServices";
+import { useContext } from "react";
+import { UserContext } from "../../context/userContext";
 
 function TeamDetail() {
     const { id } = useParams();
     const navigate = useNavigate();
+
+    const { permissions } = useContext(UserContext);
+    const context = useContext(UserContext);
 
     const [team, setTeam] = useState(null);
 
@@ -12,7 +17,6 @@ function TeamDetail() {
         const fetchTeam = async () => {
             try {
                 const data = await getTeam(id);
-                console.log(data)
                 setTeam(data);
             } catch (error) {
                 console.error(error);
@@ -60,26 +64,32 @@ function TeamDetail() {
                 <p>Coach: {team.coach_name}</p>
 
                 <div className="flex gap-4 mt-6">
-                    <Link
-                        to="/teams/create"
-                        className="bg-blue-600 px-4 py-2 rounded"
-                    >
-                        Create Team
-                    </Link>
+                    {permissions.canCreate && (
+                        <Link
+                            to="/teams/create"
+                            className="bg-blue-600 px-4 py-2 rounded"
+                        >
+                            Create Team
+                        </Link>
+                    )}
 
-                    <Link
-                        to={`/teams/${id}/edit`}
-                        className="bg-green-600 px-4 py-2 rounded"
-                    >
-                        Edit Team
-                    </Link>
+                    {permissions.canEdit && (
+                        <Link
+                            to={`/teams/${id}/edit`}
+                            className="bg-green-600 px-4 py-2 rounded"
+                        >
+                            Edit Team
+                        </Link>
+                    )}
 
-                    <button
-                        onClick={handleDelete}
-                        className="bg-red-600 px-4 py-2 rounded"
-                    >
-                        Delete
-                    </button>
+                    {permissions.canDelete && (
+                        <button
+                            onClick={handleDelete}
+                            className="bg-red-600 px-4 py-2 rounded"
+                        >
+                            Delete
+                        </button>
+                    )}
                 </div>
             </div>
         </div>
