@@ -1,8 +1,9 @@
 const API_URL = "http://127.0.0.1:8000/api/leagues";
+import api from "../api/axios";
 
 export const getLeagues = async () => {
-  const response = await fetch(`${API_URL}/`);
-  return response.json();
+  const response = await api.get('/leagues/');
+  return response.data;
 };
 
 export const getLeague = async (id) => {

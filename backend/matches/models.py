@@ -46,5 +46,6 @@ class Matches(models.Model):
     class Meta:
         managed = False
         db_table = 'matches'
+        ordering = ["-utc_date"]
 
      

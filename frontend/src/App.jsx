@@ -4,7 +4,9 @@ import MainLayout from "./components/MainLayout";
 
 import Dashboard from "./pages/Dashboard";
 import Leagues from "./pages/Leagues";
-import Players from "./pages/Players";
+
+import Players from "./pages/players/Players";
+
 import Referees from "./pages/Referees";
 import Coaches from "./pages/Coaches";
 

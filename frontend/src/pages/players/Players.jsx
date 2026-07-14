@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { getPlayers } from "../services/playersServices";
+import  { getPlayers } from "../../services/playersServices";
+import { Search } from "lucide-react";
 
 function Players() {
   const [players, setPlayers] = useState([]);
@@ -20,6 +21,27 @@ function Players() {
     return (
     <div className="p-6 bg-[#251b50]">
         <h1 className="text-2xl font-bold mb-6 text-white">Players</h1>
+
+        <div>
+
+            <div className="relative max-w-md">
+                <Search
+                    size={18}
+                    className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-200"
+                />
+
+                <input
+                    type="text"
+                    placeholder="Search..."
+                    className="w-full rounded-lg border border-gray-300 py-2 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
+                />
+            </div>
+
+            <div>
+                
+            </div>
+
+        </div>
 
         <div className="overflow-x-auto bg-[#534AB7] rounded-lg shadow">
         <table className="min-w-full">
