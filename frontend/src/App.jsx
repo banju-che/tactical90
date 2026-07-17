@@ -15,6 +15,8 @@ import TeamForm from "./pages/teams/TeamForm";
 import TeamDetail from "./pages/teams/TeamDetail";
 
 import Matches from "./pages/matches/Matches";
+import MatchDetail from "./pages/matches/MatchDetail"
+
 import Login from "./pages/Login";
 
 function App() {
@@ -35,6 +37,7 @@ function App() {
           <Route path="/teams/:id/edit" element={<TeamForm />} />
 
           <Route path="/matches" element={<Matches />} />
+          <Route path="/match/:id" element={<MatchDetail />} />
 
           <Route path="/referees" element={<Referees />} />
           <Route path="/coaches" element={<Coaches />} />

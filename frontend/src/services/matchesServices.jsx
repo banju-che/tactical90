@@ -8,8 +8,8 @@ export const getMatches = async (filters={}) => {
 };
 
 export const getMatch = async (id) => {
-  const response = await fetch(`${API_URL}/${id}/`);
-  return response.json();
+  const response = await api.get(`/matches/${id}`);
+  return response.data;
 };
 
 export const createMatch = async (data) => {
