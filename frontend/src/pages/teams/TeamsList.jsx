@@ -14,7 +14,7 @@ function Teams() {
         const fetchTeams = async () => {
             try {
                 const data = await getTeams();
-                setTeams(data);
+                setTeams(data.results);
             } catch (error) {
                 console.error(error);
             }
